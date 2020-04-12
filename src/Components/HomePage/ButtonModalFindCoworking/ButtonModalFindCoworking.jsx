@@ -49,38 +49,38 @@ class ButtonModalFindCoworking extends React.Component {
 
                             <div className="col-md-2">
 
-                                <button type="button" className="btn btn-light"><h6>БЦ Поле</h6>Расплетина 10к1</button>
+                                <button type="button" className="btn btn-light"><h6>БЦ Академический</h6> пр-т 60-летия октября, д9 с.2</button>
 
                             </div>
 
                             <div className="col-md-2">
 
-                                <button type="button" className="btn btn-light"><h6>БЦ Президент Плаза</h6>Кутузовский 32</button>
+                                <button type="button" className="btn btn-light"><h6>БЦ Президент Плаза (корпус Б)</h6>Кутузовский проспект 32, стр. 2</button>
 
                             </div>
 
                             <div className="col-md-2">
 
-                                <button type="button" className="btn btn-light"><h6>БЦ Главное здание</h6>Вавилова 19</button>
+                                <button type="button" className="btn btn-light"><h6>БЦ Президент Плаза (корпус Г)</h6>Кутузовский проспект, 32</button>
 
                             </div>
 
                             <div className="col-md-2">
 
-                                <button type="button" className="btn btn-light"><h6>БЦ Пашин дом</h6> Зарайская 47к1
+                                <button type="button" className="btn btn-light"><h6>БЦ Поклонка Плейс</h6> Поклонная, д. 3А, корп. 1, 2, 3
                                 </button>
 
                             </div>
 
                             <div className="col-md-2">
 
-                                <button type="button" className="btn btn-light"><h6>БЦ Монолит</h6>Остоженка</button>
+                                <button type="button" className="btn btn-light"><h6>Вавилова, 19</h6>Вавилова, 19</button>
 
                             </div>
 
                             <div className="col-md-2">
 
-                                <button type="button" className="btn btn-light"><h6>БЦ Западный порт</h6>Кутузовский 31</button>
+                                <button type="button" className="btn btn-light"><h6>Вавлова, 23</h6>Вавилова, 23</button>
 
                             </div>
 

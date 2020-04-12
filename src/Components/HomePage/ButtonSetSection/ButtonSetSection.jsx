@@ -7,9 +7,11 @@ const ButtonSetSection= (props) => {
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
     return (
-        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
 
-            <DropdownToggle caret color="light" >
+
+        <Dropdown isOpen={dropdownOpen} toggle={toggle} className="card">
+
+            <DropdownToggle caret color="white" >
                 Секция №3
             </DropdownToggle>
 
@@ -21,6 +23,7 @@ const ButtonSetSection= (props) => {
                 <DropdownItem>Секция №5</DropdownItem>
             </DropdownMenu>
         </Dropdown>
+
     );
 }
 

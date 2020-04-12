@@ -39,22 +39,24 @@ class HomePage extends React.Component {
 
                                 <div className="row">
 
-                                    <div className="col-md-2 text-center ">
+                                    <div className="col-md-2 text-center">
+
+                                        <ButtonDatePicker/>
+                                    </div>
+
+                                    <div className="col-md-2 text-center">
 
 
                                         <ButtonSetFloor/>
 
 
                                     </div>
-                                    <div className="col-md-2 text-center">
+                                    <div className="col-md-2 text-center" >
 
                                         <ButtonSetSection/>
                                     </div>
 
-                                    <div className="col-md-2 text-center">
 
-                                        <ButtonDatePicker/>
-                                    </div>
 
                                 </div>
 
