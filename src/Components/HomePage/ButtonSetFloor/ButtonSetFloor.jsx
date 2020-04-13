@@ -1,34 +1,120 @@
-import React, {useState} from 'react';
-import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from "reactstrap";
+import React from 'react';
+import {Dropdown, DropdownMenu, DropdownToggle} from "reactstrap";
+import {connect} from "react-redux";
+import {changeCoworkingMapFloor} from "../../../Actions/HomePage/setCoworkingMap.js"
+import {bindActionCreators} from 'redux'
+import {API_URL} from "../../../settings.js"
+import DropdownItem from "reactstrap/es/DropdownItem";
 
 
-const ButtonSetFloor = (props) => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+class ButtonSetFloor extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const toggle = () => setDropdownOpen(prevState => !prevState);
+        this.state = {
+            dropdownOpen: false,
 
-    return (
+            //Динамический список этажей
+            floors: []
+        }
+    }
+
+    componentDidMount() {
+
+        const {
+            coworkingMapBulding
+        } = this.props
+
+        //Получаем Название и Адрес здания из API
+
+        fetch(API_URL + "/buildings/" + coworkingMapBulding)
+            .then(res => res.json())
+            .then((result) => {
+                for (let i = 0; i <= result['floors'].length - 1; i++) {
+                    this.setState(prevState => ({
+                        floors: [...prevState.floors, result['floors'][i]]
+                    }))
+                }
+            })
+
+    }
+
+    //Динамическое формирование спика этажей
+
+    createSelectItems() {
+
+        const {
+            floors
+        } = this.state
+
+        if (floors === undefined) {
+            return
+        }
 
 
+        //Динамическое создание списка
+        // https://stackoverflow.com/questions/36205673/how-do-i-create-a-dynamic-drop-down-list-with-react-bootstrap
 
-                <Dropdown isOpen={dropdownOpen} toggle={toggle} className="card">
+        let items = [];
+        for (let i = 0; i <= floors.length - 1; i++) {
+            items.push(<DropdownItem
+                key={i}
+                value={[i]}
+                onClick={()=>{
+                    changeCoworkingMapFloor(i+1)
+                }}
 
-                    <DropdownToggle caret color="white"
-                    >
-                        3 этаж
-                    </DropdownToggle>
+            >{floors[i]}</DropdownItem>);
+        }
 
-                    <DropdownMenu>
-                        <DropdownItem>1 этаж</DropdownItem>
-                        <DropdownItem>2 этаж</DropdownItem>
-                        <DropdownItem active>3 этаж</DropdownItem>
-                        <DropdownItem>4 этаж</DropdownItem>
-                        <DropdownItem>5 этаж</DropdownItem>
-                    </DropdownMenu>
-                </Dropdown>
+        return items;
+    }
 
-    );
+
+    render() {
+
+        const {
+            dropdownOpen
+        } = this.state
+
+        const toggle = () => {
+            this.setState({
+                dropdownOpen: !dropdownOpen
+            })
+        }
+
+
+        return (
+
+            <Dropdown isOpen={dropdownOpen} toggle={toggle} className="card">
+
+                <DropdownToggle caret color="white">
+                    1 этаж
+                </DropdownToggle>
+
+                <DropdownMenu>
+                    {this.createSelectItems()}
+                </DropdownMenu>
+            </Dropdown>
+
+        );
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+
+        changeCoworkingMapFloor: bindActionCreators(changeCoworkingMapFloor, dispatch),
+    }
+}
+
+const mapStateToProps = (state) => {
+
+    return {
+        coworkingMapBulding: state.setCoworkingMapBuildingReducer.coworkingMapBuilding
+    }
 }
 
 
-export default ButtonSetFloor
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonSetFloor)

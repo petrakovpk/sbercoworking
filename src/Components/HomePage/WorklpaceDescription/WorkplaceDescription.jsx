@@ -17,6 +17,8 @@ class WorkplaceDescription extends React.Component {
 
                 <img src={pic} alt="Responsive image" width="300" height="150"/>
 
+
+
                 <div className="text-left">
 
                 <p/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonModalFindCoworking from "./ButtonModalFindCoworking"
+import ButtonSetBuildingModal from "./ButtonSetBuildingModal"
 import ButtonSetFloor from "./ButtonSetFloor"
 import ButtonSetSection from "./ButtonSetSection"
 import CoworkingMap from "./CoworkingMap";
@@ -21,9 +21,9 @@ class HomePage extends React.Component {
             <div className="container-fluid">
                 <div className="row">
 
-                    <div className="col-md-6 offset-3">
+                    <div className="col-md-6 offset-3 mt-3">
 
-                        <ButtonModalFindCoworking/>
+                        <ButtonSetBuildingModal/>
 
                     </div>
 

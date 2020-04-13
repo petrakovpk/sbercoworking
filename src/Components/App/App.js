@@ -2,19 +2,23 @@ import React from 'react';
 import './App.css';
 import NavigationPanel from "../NavigationPanel"
 import HomePage from "../HomePage"
+import store from '../../Store/store.js';
+import {Provider} from 'react-redux'
 
 function App() {
-  return (
-    <div className="App">
+    return (
+        <Provider store={store}>
 
-        <NavigationPanel/>
+            <div className="App">
 
-        <HomePage/>
+                <NavigationPanel/>
 
+                <HomePage/>
 
+            </div>
 
-    </div>
-  );
+        </Provider>
+    );
 }
 
 export default App;
