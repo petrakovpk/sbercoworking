@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {changeLoggedUser} from "../../Actions/Login/setLoggedUser";
+import {API_URL} from "../../settings"
 
 class Login extends React.Component {
     constructor(props) {
