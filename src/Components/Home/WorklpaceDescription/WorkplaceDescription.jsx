@@ -102,13 +102,13 @@ class WorkplaceDescription extends React.Component {
 
 
         const images = [{
-            src: 'http://127.0.0.1:5000/buildings/'
+            src: API_URL+'/buildings/'
                 + coworkingMapBuilding + '/'
                 + coworkingMapFloor + '/'
                 + coworkingMapWorkplace + '/map.jpg'
         }];
 
-        const workplacepPicURL = 'http://127.0.0.1:5000/buildings/'
+        const workplacepPicURL = API_URL+'/buildings/'
             + coworkingMapBuilding + '/'
             + coworkingMapFloor + '/'
             + coworkingMapWorkplace + '/map.jpg'

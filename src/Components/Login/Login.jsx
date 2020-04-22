@@ -33,7 +33,7 @@ class Login extends React.Component {
             changeLoggedUser
         } = this.props
 
-        fetch("http://127.0.0.1:5000/users/", {
+        fetch(API_URL+"/users/", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

@@ -58,7 +58,7 @@ class CoworkingMap extends React.Component {
         } = this.props
 
 
-        const map_url = 'http://127.0.0.1:5000/buildings/'
+        const map_url = API_URL+'/buildings/'
             + coworkingMapBuilding + '/'
             + coworkingMapFloor + '/map.png'
 
