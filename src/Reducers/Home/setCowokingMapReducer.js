@@ -1,17 +1,20 @@
 import {
     CHANGE_COWORKING_MAP_BUILDING,
     CHANGE_COWORKING_MAP_FLOOR,
-    CHANGE_COWORKING_MAP_SECTION
-} from "../../Actions/HomePage/setCoworkingMap.js"
+    CHANGE_COWORKING_MAP_SECTION,
+    CHANGE_COWORKING_MAP_WORKPLACE
+} from "../../Actions/Home/setCoworkingMap.js"
 
 const defaultState = {
 
     coworkingMapBuilding: 1,
     coworkingMapFloor: 3,
-    coworkingMapSection: 1
+    coworkingMapSection: 1,
+    coworkingMapWorkplace: 1
 }
 
-export const setCoworkingMapBuildingReducer = (state = defaultState, action) => {
+export const setCoworkingMapReducer = (state = defaultState, action) => {
+
 
     switch (action.type) {
 
@@ -21,16 +24,6 @@ export const setCoworkingMapBuildingReducer = (state = defaultState, action) => 
                 coworkingMapBuilding: action.payload
 
             };
-    }
-
-
-    return state;
-
-}
-
-export const setCoworkingMapFloorReducer = (state = defaultState, action) => {
-
-    switch (action.type) {
 
         case CHANGE_COWORKING_MAP_FLOOR:
 
@@ -39,16 +32,6 @@ export const setCoworkingMapFloorReducer = (state = defaultState, action) => {
                 coworkingMapFloor: action.payload
 
             };
-    }
-
-
-    return state;
-
-}
-
-export const setCoworkingMapSectionReducer = (state = defaultState, action) => {
-
-    switch (action.type) {
 
         case CHANGE_COWORKING_MAP_SECTION:
             return {
@@ -56,8 +39,14 @@ export const setCoworkingMapSectionReducer = (state = defaultState, action) => {
                 coworkingMapSection: action.payload
 
             };
-    }
 
+        case CHANGE_COWORKING_MAP_WORKPLACE:
+            return {
+                ...state,
+                coworkingMapWorkplace: action.payload
+
+            };
+    }
 
     return state;
 

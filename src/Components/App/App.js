@@ -1,24 +1,68 @@
 import React from 'react';
 import './App.css';
-import NavigationPanel from "../NavigationPanel"
-import HomePage from "../HomePage"
-import store from '../../Store/store.js';
-import {Provider} from 'react-redux'
+import Header from "../Header"
+import PrivateHome from "../Home/PrivateHome"
+import Home from "../Home/"
+import Login from "../Login"
+import {Route, Switch} from 'react-router-dom';
+import {changeLoggedUser} from "../../Actions/Login/setLoggedUser";
+import {connect} from "react-redux";
+import {bindActionCreators} from 'redux'
 
-function App() {
-    return (
-        <Provider store={store}>
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        const {
+            changeLoggedUser
+        } = this.props
+
+
+        changeLoggedUser(localStorage.getItem('user'))
+    }
+
+
+    render() {
+
+
+        return (
 
             <div className="App">
 
-                <NavigationPanel/>
+                <Header/>
 
-                <HomePage/>
+                <Switch>
+
+                    <PrivateHome exact path="/" component={Home}/>
+
+                    <Route exact path="/login" component={Login}/>
+
+
+                </Switch>
 
             </div>
 
-        </Provider>
-    );
+
+        );
+    }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+
+        changeLoggedUser: bindActionCreators(changeLoggedUser, dispatch),
+    }
+}
+
+const mapStateToProps = (state) => {
+
+    return {
+        loggedUser: state.setLoggedUserReducer.loggedUser,
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

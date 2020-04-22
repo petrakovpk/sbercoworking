@@ -1,18 +1,14 @@
 import {combineReducers, createStore} from 'redux'
 
-import {
-    setCoworkingMapBuildingReducer,
-    setCoworkingMapFloorReducer,
-    setCoworkingMapSectionReducer
-} from "../Reducers/HomePage/setCowokingMapReducer";
+import {setCoworkingMapReducer} from "../Reducers/Home/setCowokingMapReducer";
+
+import {setLoggedUserReducer} from "../Reducers/Login/setLoggedUserReducer"
 
 
-const store = createStore( combineReducers({
+const store = createStore(combineReducers({
 
-    setCoworkingMapBuildingReducer,
-    setCoworkingMapFloorReducer,
-    setCoworkingMapSectionReducer
-
+    setCoworkingMapReducer,
+    setLoggedUserReducer
 
 }))
 

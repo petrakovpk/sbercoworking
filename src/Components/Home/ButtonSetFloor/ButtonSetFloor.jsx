@@ -1,9 +1,8 @@
 import React from 'react';
 import {Dropdown, DropdownMenu, DropdownToggle} from "reactstrap";
 import {connect} from "react-redux";
-import {changeCoworkingMapFloor} from "../../../Actions/HomePage/setCoworkingMap.js"
+import {changeCoworkingMapFloor, changeCoworkingMapWorkplace} from "../../../Actions/Home/setCoworkingMap";
 import {bindActionCreators} from 'redux'
-import {API_URL} from "../../../settings.js"
 import DropdownItem from "reactstrap/es/DropdownItem";
 
 
@@ -13,61 +12,73 @@ class ButtonSetFloor extends React.Component {
 
         this.state = {
             dropdownOpen: false,
-
-            //Динамический список этажей
-            floors: []
         }
     }
 
-    componentDidMount() {
+    createDropdownToggle(floors, coworkingMapFloor) {
 
-        const {
-            coworkingMapBulding
-        } = this.props
+        if (floors[coworkingMapFloor - 1] === undefined) {
+            return
+        }
 
-        //Получаем Название и Адрес здания из API
+        let items = []
 
-        fetch(API_URL + "/buildings/" + coworkingMapBulding)
-            .then(res => res.json())
-            .then((result) => {
-                for (let i = 0; i <= result['floors'].length - 1; i++) {
-                    this.setState(prevState => ({
-                        floors: [...prevState.floors, result['floors'][i]]
-                    }))
-                }
-            })
+        items.push(
+            <DropdownToggle caret color="white">
 
+                {floors[coworkingMapFloor - 1]['floor_name']}
+
+            </DropdownToggle>
+        )
+
+        return items
     }
+
 
     //Динамическое формирование спика этажей
 
-    createSelectItems() {
+    createSelectItems(floors) {
 
         const {
-            floors
-        } = this.state
+            changeCoworkingMapFloor,
+            changeCoworkingMapWorkplace
+        } = this.props
 
         if (floors === undefined) {
             return
         }
 
-
         //Динамическое создание списка
         // https://stackoverflow.com/questions/36205673/how-do-i-create-a-dynamic-drop-down-list-with-react-bootstrap
 
         let items = [];
+
         for (let i = 0; i <= floors.length - 1; i++) {
             items.push(<DropdownItem
                 key={i}
                 value={[i]}
-                onClick={()=>{
-                    changeCoworkingMapFloor(i+1)
+                onClick={() => {
+                    changeCoworkingMapFloor(floors[i]['floor_id'])
+                    changeCoworkingMapWorkplace(1)
+
                 }}
 
-            >{floors[i]}</DropdownItem>);
+            >{floors[i]['floor_name']}</DropdownItem>);
         }
 
         return items;
+    }
+
+    toggle = () => {
+
+        const {
+            dropdownOpen
+        } = this.state
+
+        this.setState({
+            dropdownOpen: !dropdownOpen
+        })
+
     }
 
 
@@ -77,24 +88,24 @@ class ButtonSetFloor extends React.Component {
             dropdownOpen
         } = this.state
 
-        const toggle = () => {
-            this.setState({
-                dropdownOpen: !dropdownOpen
-            })
-        }
+        const {
+            coworkingMapFloor,
+            floors
+        } = this.props
 
 
         return (
 
-            <Dropdown isOpen={dropdownOpen} toggle={toggle} className="card">
+            <Dropdown isOpen={dropdownOpen} toggle={this.toggle} className="card">
 
-                <DropdownToggle caret color="white">
-                    1 этаж
-                </DropdownToggle>
+                {this.createDropdownToggle(floors, coworkingMapFloor)}
 
                 <DropdownMenu>
-                    {this.createSelectItems()}
+
+                    {this.createSelectItems(floors)}
+
                 </DropdownMenu>
+
             </Dropdown>
 
         );
@@ -106,13 +117,14 @@ const mapDispatchToProps = (dispatch) => {
     return {
 
         changeCoworkingMapFloor: bindActionCreators(changeCoworkingMapFloor, dispatch),
+        changeCoworkingMapWorkplace: bindActionCreators(changeCoworkingMapWorkplace, dispatch)
     }
 }
 
 const mapStateToProps = (state) => {
 
     return {
-        coworkingMapBulding: state.setCoworkingMapBuildingReducer.coworkingMapBuilding
+        coworkingMapFloor: state.setCoworkingMapReducer.coworkingMapFloor,
     }
 }
 
