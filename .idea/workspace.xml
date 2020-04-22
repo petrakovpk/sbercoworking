@@ -1,52 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeb13d5c-8052-47bf-a84c-ab3ff80e014f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Actions/Login/setLoggedUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home/ButtonBookWorkplace/ButtonBookWorkplace.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home/ButtonBookWorkplace/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home/ButtonDatePicker/ButtonDatePicker.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home/ButtonSetBuildingModal/ButtonSetBuildingModal.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home/CoworkingMap/CoworkingMap.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home/WorklpaceDescription/WorkplaceDescription.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Login/Login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Login/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Reducers/Login/setLoggedUserReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actions/HomePage/setCoworkingMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/Home/setCoworkingMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actions/HomePage/setHomeBuilding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/PrivateHome/PrivateHome.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonDatePicker/ButtonDatePicker.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonDatePicker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/ButtonDatePicker/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonSetBuildingModal/ButtonSetBuildingModal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonSetBuildingModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/ButtonSetBuildingModal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonSetFloor/ButtonSetFloor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/ButtonSetFloor/ButtonSetFloor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonSetFloor/ButtonSetFloor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/ButtonSetFloor/ButtonSetFloor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonSetFloor/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/ButtonSetFloor/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonSetSection/ButtonSetSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/ButtonSetSection/ButtonSetSection.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/ButtonSetSection/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/ButtonSetSection/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/CoworkingMap/CoworkingMap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/CoworkingMap/CoworkingMap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/CoworkingMap/CoworkingMap.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/CoworkingMap/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/CoworkingMap/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/HomePage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/WorklpaceDescription/WorkplaceDescription.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/WorklpaceDescription/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/WorklpaceDescription/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/WorklpaceDescription/pic1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/WorklpaceDescription/pic2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/WorklpaceDescription/pic2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HomePage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/NavigationPanel/NavigationPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/NavigationPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reducers/HomePage/setCowokingMapReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reducers/Home/setCowokingMapReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reducers/HomePage/setHomeBuildingReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/PrivateHome/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/maps/raspletina_3_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/maps/raspletina_5_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings.js" afterDir="false" />
-    </list>
+    <list default="true" id="eeb13d5c-8052-47bf-a84c-ab3ff80e014f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -178,45 +133,6 @@
               <item name="sbercoworking" type="b2602c69:ProjectViewProjectNode" />
               <item name="sbercoworking" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="sbercoworking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbercoworking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sbercoworking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbercoworking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sbercoworking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbercoworking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sbercoworking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbercoworking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="462c0819:PsiDirectoryNode" />
-              <item name="ButtonSetBuildingModal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sbercoworking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbercoworking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sbercoworking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbercoworking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Reducers" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -268,21 +184,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.npm start">
-    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
-      <method v="2" />
-    </configuration>
-    <configuration name="npm start" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-  </component>
+  <component name="RunManager" selected="npm.npm start" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -313,7 +215,7 @@
       <workItem from="1587499504248" duration="3370000" />
       <workItem from="1587565039973" duration="339000" />
       <workItem from="1587571714841" duration="921000" />
-      <workItem from="1587591833609" duration="466000" />
+      <workItem from="1587591833609" duration="714000" />
     </task>
     <task id="LOCAL-00001" summary="nice">
       <created>1586708615260</created>
@@ -364,22 +266,30 @@
       <option name="project" value="LOCAL" />
       <updated>1586812341681</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="nice 3">
+      <created>1587595378395</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587595378395</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108555000" />
+    <option name="totallyTimeSpent" value="108803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34191704" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34191704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3048193" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3048193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -732,10 +642,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
