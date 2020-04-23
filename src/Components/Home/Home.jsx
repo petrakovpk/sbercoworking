@@ -104,7 +104,7 @@ class Home extends React.Component {
             <div className="container-fluid">
                 <div className="row">
 
-                    <div className="col-md-6 offset-3 mt-3">
+                    <div className="col-md-6 offset-md-3 mt-3">
 
 
                         <ButtonSetBuildingModal
@@ -127,13 +127,13 @@ class Home extends React.Component {
 
                                 <div className="row">
 
-                                    <div className="col-md-2 text-center">
+                                    <div className="col-md-2 text-center mt-3 mt-md-1">
 
                                         <ButtonDatePicker/>
 
                                     </div>
 
-                                    <div className="col-md-2 text-center">
+                                    <div className="col-md-2 text-center mt-3 mt-md-1">
 
                                         <ButtonSetFloor
                                             floors={floors}
@@ -141,7 +141,7 @@ class Home extends React.Component {
 
                                     </div>
 
-                                    <div className="col-md-2 text-center">
+                                    <div className="col-md-2 text-center mt-3 mt-md-1">
 
                                         <ButtonSetSection/>
 
@@ -161,7 +161,7 @@ class Home extends React.Component {
 
                 <div className="row mx-auto mt-3 text-center">
 
-                    <div className="col-md-9 card">
+                    <div className="col-md-9 card mt-3 mt-md-1">
 
                         <CoworkingMap
                             coworkingMapFloor={mapFloor}
@@ -169,7 +169,7 @@ class Home extends React.Component {
 
                     </div>
 
-                    <div className="col-md-3 card">
+                    <div className="col-md-3 card mt-3 mt-md-1">
 
                         <WorkplaceDescription/>
 

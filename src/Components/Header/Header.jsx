@@ -4,10 +4,21 @@ import {connect} from "react-redux";
 import {changeLoggedUser} from "../../Actions/Login/setLoggedUser";
 import {bindActionCreators} from 'redux'
 
+import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavbarText} from 'reactstrap'
+
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+
+            isOpen: false
+        }
+    }
+
+    toggle = () => {
+        this.setState(state => ({isOpen: !state.isOpen}));
     }
 
 
@@ -21,53 +32,56 @@ class Header extends React.Component {
         } = this.props
 
 
+        const {
+            isOpen
+        } = this.state
+
+
         return (
 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">CoworkingPlanner</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+            <Navbar color="light" light expand="md">
+                <NavbarBrand href="/">CoworkingPlanner</NavbarBrand>
+                <NavbarToggler onClick={this.toggle}/>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav className="mr-auto" navbar>
+                    </Nav>
 
 
-                    </ul>
 
-                    {userLogged ? (
+                        {userLogged ? (
 
-                        <div className="text-justify mr-3" type="submit"
-                             onClick={(() => {
-                                 localStorage.removeItem('user')
-                             })}
-                        >
-                            {loggedUser}
-                        </div>
+                            <div className="text-justify mr-3 text-center" type="submit"
+                                 onClick={(() => {
+                                     localStorage.removeItem('user')
+                                 })}
+                            >
+                                {loggedUser}
+                            </div>
 
-                    ) : <div></div>}
-
-
-                    {userLogged ? (
+                        ) : <div></div>}
 
 
-                        <button className="btn btn-outline-danger my-2 my-sm-0" type="submit"
-                                onClick={(() => {
+                        {userLogged ? (
 
-                                    localStorage.removeItem('user')
-                                    changeLoggedUser(null)
 
-                                })}
-                        >
-                            <Link className="text-danger" to='/login'>Выйти</Link>
-                        </button>
+                            <button className="btn btn-outline-danger mr-3" type="submit"
+                                    onClick={(() => {
 
-                    ) : <div></div>}
+                                        localStorage.removeItem('user')
+                                        this.toggle()
+                                        changeLoggedUser(null)
 
-                </div>
-            </nav>
+                                    })}
+                            >
+                                <Link className="text-danger" to='/login'>Выйти</Link>
+                            </button>
+
+                        ) : <div></div>}
+
+
+                </Collapse>
+            </Navbar>
 
         )
     }

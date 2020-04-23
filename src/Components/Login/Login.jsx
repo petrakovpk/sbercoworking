@@ -10,7 +10,9 @@ class Login extends React.Component {
 
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            loginInputStyle: "form-control mt-3",
+            passwordInputStyle: "form-control mt-3"
         }
 
     }
@@ -34,7 +36,7 @@ class Login extends React.Component {
             changeLoggedUser
         } = this.props
 
-        fetch(API_URL+"/users/", {
+        fetch(API_URL + "/users/", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -49,45 +51,76 @@ class Login extends React.Component {
             .then(data => {
 
 
+                    if (data['auth'] === 'ok') {
 
-                if (data['auth'] === 'ok') {
-                    localStorage.setItem("user", this.state.username);
+                        localStorage.setItem("user", this.state.username);
+                        changeLoggedUser(this.state.username)
+                        document.location = '/';
 
-                    changeLoggedUser(this.state.username)
+                        this.setState({
+                            loginInputStyle: "form-control mt-3",
+                            passwordInputStyle: "form-control mt-3"
+                        })
 
-                    document.location = '/';
+                    } else if (data['auth'] === 'loginError') {
+                        this.setState({
 
+                            loginInputStyle: "form-control mt-3 border-danger"
+
+                        })
+                    } else if (data['auth'] === 'passwordError') {
+
+                        this.setState({
+                            loginInputStyle: "form-control mt-3",
+                            passwordInputStyle: "form-control mt-3 border-danger"
+
+                        })
+                    }
                 }
-            })
+            )
     }
 
 
     render() {
 
+        const {
+            loginInputStyle,
+            passwordInputStyle
+        } = this.state
+
         return (
-            <div className="row mt-5">
+
+            <div className="container-fluid">
+                <div className="row mt-5">
 
 
-                <div className="col-md-2 offset-5">
+                    <div className="col-md-2 col-8 offset-md-5 offset-2">
 
-                    Вход в систему
+                        Вход в систему
+                        <p/>
 
-                    <input type="text" className="form-control mt-3"
-                           onChange={(e) => {
-                               this.handleChangeLogin(e)
-                           }}
-                           placeholder="Login"/>
+                        <p>test/test</p>
 
+                        <input type="text" className={loginInputStyle}
 
-                    <input type="text" className="form-control mt-3"
-                           onChange={(e) => {
-                               this.handleChangepassword(e)
-                           }}
-                           placeholder="Password"/>
+                               onChange={(e) => {
+                                   this.handleChangeLogin(e)
+                               }}
+                               placeholder="Login"/>
 
 
-                    <button className="btn btn-outline-primary mt-3" onClick={this.onClickLogin}> Войти</button>
+                        <input type="text" className="form-control mt-3 " className={passwordInputStyle}
+                               onChange={(e) => {
+                                   this.handleChangepassword(e)
+                               }}
+                               placeholder="Password"/>
 
+
+                        <button className="btn btn-outline-primary mt-3" onClick={this.onClickLogin}>Войти</button>
+                        <p></p>
+
+
+                    </div>
                 </div>
             </div>
         )
@@ -98,9 +131,9 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
 
-         changeLoggedUser: bindActionCreators(changeLoggedUser, dispatch),
+        changeLoggedUser: bindActionCreators(changeLoggedUser, dispatch),
     }
 }
 
 
-export default connect(null,mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login)

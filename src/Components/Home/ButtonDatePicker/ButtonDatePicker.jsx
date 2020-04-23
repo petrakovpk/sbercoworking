@@ -1,31 +1,48 @@
 import React from 'react';
+import {Input, InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap';
+import {connect} from "react-redux";
 
 
 class ButtonDatePicker extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            date: new Date(),
-        }
 
     }
 
-    onChange = date => this.setState({ date })
 
     render() {
+
+        const {
+            coworkingMapDay
+        } = this.props
         return (
-            <div className="card">
-                <div className="input-group">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Дата: </span>
-                    </div>
-                    <input type="text" className="form-control" placeholder="12.04.2020"/>
-                </div>
-            </div>
+
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                    <InputGroupText>Дата:</InputGroupText>
+                </InputGroupAddon>
+                <Input placeholder={coworkingMapDay.toLocaleDateString()}/>
+            </InputGroup>
+
         )
 
     }
 }
 
-export default ButtonDatePicker
+const
+    mapStateToProps = (state) => {
+
+        return {
+
+            coworkingMapDay: state.setCoworkingMapReducer.coworkingMapDay
+        }
+
+    }
+
+
+export default connect(mapStateToProps)
+
+(
+    ButtonDatePicker
+)

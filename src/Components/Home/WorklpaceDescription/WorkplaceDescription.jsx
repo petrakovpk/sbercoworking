@@ -1,9 +1,20 @@
 import React from 'react';
 import {connect} from "react-redux";
-import ButtonBookWorkplace from "../ButtonBookWorkplace";
 import {API_URL} from "../../../settings";
 import Carousel, {Modal, ModalGateway} from 'react-images';
+import {changeCoworkingMapWorkplace} from "../../../Actions/Home/setCoworkingMap";
+import {bindActionCreators} from 'redux'
+import ButtonBookWorkplace from "../ButtonBookWorkplace"
 
+Date.prototype.yyyymmdd = function () {
+    var mm = this.getMonth() + 1; // getMonth() is zero-based
+    var dd = this.getDate();
+
+    return [(dd > 9 ? '' : '0') + dd,
+        (mm > 9 ? '' : '0') + mm,
+        this.getFullYear()
+    ].join('');
+};
 
 class WorkplaceDescription extends React.Component {
     constructor(props) {
@@ -15,7 +26,9 @@ class WorkplaceDescription extends React.Component {
             workplacePK: "",
             workplacePrinter: "",
             workplaceWiFi: "",
-            modalIsOpen: false
+            modalIsOpen: false,
+            isBooked: false,
+            userBooked: ''
         }
 
     }
@@ -44,19 +57,23 @@ class WorkplaceDescription extends React.Component {
         const {
             coworkingMapWorkplace,
             coworkingMapBuilding,
-            coworkingMapFloor
+            coworkingMapFloor,
+            coworkingMapDay,
+
+            changeCoworkingMapWorkplace
 
         } = this.props
+
 
         this.setState({
             workplaceName: '',
             workplaceNumber: '',
             workplacePK: '',
             workplacePrinter: '',
-            workplaceWiFi: ''
+            workplaceWiFi: '',
+            isBooked: false,
+            userBooked: ''
         })
-
-
 
 
         //Получаем описание рабочего места
@@ -69,14 +86,59 @@ class WorkplaceDescription extends React.Component {
                         workplaceNumber: result['workplace_number'],
                         workplacePK: result['workplace_pk'],
                         workplacePrinter: result['workplace_printer'],
-                        workplaceWiFi: result['workplace_wifi']
+                        workplaceWiFi: result['workplace_wifi'],
+                        isBooked: false,
+                        userBooked: ''
                     })
+
+
+                    for (let j = 0; j <= result['bookings'].length - 1; j++) {
+                        if (result['bookings'][j]['date'] == coworkingMapDay.ddmmyyyy()) {
+                            this.setState({
+                                isBooked: true,
+                                userBooked: result['bookings'][j]['user_id']
+                            })
+                        }
+                    }
+
 
 
                 }
             )
 
 
+    }
+
+    bookDate = (type = 'book') => {
+
+        const {
+            coworkingMapWorkplace,
+            coworkingMapBuilding,
+            coworkingMapFloor,
+            loggedUser,
+            coworkingMapDay,
+
+
+        } = this.props
+
+
+        fetch(API_URL + "buildings/" + coworkingMapBuilding + '/' + coworkingMapFloor + '/' + coworkingMapWorkplace + '/', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: JSON.stringify({
+                "user_id": loggedUser,
+                "date": coworkingMapDay.yyyymmdd(),
+                "type": type
+            })
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                    this.loadWorkplaceViaProps()
+                }
+            )
     }
 
     toggleModal = () => {
@@ -88,7 +150,8 @@ class WorkplaceDescription extends React.Component {
         const {
             coworkingMapBuilding,
             coworkingMapWorkplace,
-            coworkingMapFloor
+            coworkingMapFloor,
+            coworkingMapDay
         } = this.props
 
         const {
@@ -97,18 +160,20 @@ class WorkplaceDescription extends React.Component {
             workplacePK,
             workplacePrinter,
             workplaceWiFi,
-            modalIsOpen
+            modalIsOpen,
+            isBooked,
+            userBooked
         } = this.state
 
 
         const images = [{
-            src: API_URL+'/buildings/'
+            src: API_URL + '/buildings/'
                 + coworkingMapBuilding + '/'
                 + coworkingMapFloor + '/'
                 + coworkingMapWorkplace + '/map.jpg'
         }];
 
-        const workplacepPicURL = API_URL+'/buildings/'
+        const workplacepPicURL = API_URL + '/buildings/'
             + coworkingMapBuilding + '/'
             + coworkingMapFloor + '/'
             + coworkingMapWorkplace + '/map.jpg'
@@ -150,13 +215,21 @@ class WorkplaceDescription extends React.Component {
                     <p/>
                     <b>Принтер:</b> {workplacePrinter}
                     <p/>
+                    {userBooked ? <div>
 
-                    <b>Свободно: </b> 19.04.2020
+                            <b>Дата: </b> {coworkingMapDay.toLocaleDateString()} </div> :
+                        <div><b>Дата: </b></div>
+                    }
+                    <p/>
+
+                    <b>Сотрудник: </b> {userBooked}
 
 
                 </div>
 
                 <ButtonBookWorkplace/>
+
+
 
 
             </div>
@@ -166,13 +239,45 @@ class WorkplaceDescription extends React.Component {
     }
 }
 
+//<div className="mt-auto">
+//
+//                     {isBooked ?
+//                         <button type="button" className="btn btn-outline-danger btn-block"
+//                                 onClick={() => {
+//                                     this.bookDate('unbook')
+//                                 }}
+//                         >Отменить бронирование
+//                         </button> :
+//
+//                         <button type="button" className="btn btn-outline-success btn-block"
+//                                 onClick={() => {
+//                                     this.bookDate('book')
+//                                 }}
+//                         >Забронировать
+//                         </button>
+//                     }
+//
+//                 </div>
+
+const
+    mapDispatchToProps = (dispatch) => {
+
+        return {
+
+            changeCoworkingMapWorkplace: bindActionCreators(changeCoworkingMapWorkplace, dispatch),
+        }
+    }
+
+
 const mapStateToProps = (state) => {
 
     return {
         coworkingMapBuilding: state.setCoworkingMapReducer.coworkingMapBuilding,
         coworkingMapFloor: state.setCoworkingMapReducer.coworkingMapFloor,
         coworkingMapWorkplace: state.setCoworkingMapReducer.coworkingMapWorkplace,
+        coworkingMapDay: state.setCoworkingMapReducer.coworkingMapDay,
+        loggedUser: state.setLoggedUserReducer.loggedUser
     }
 }
 
-export default connect(mapStateToProps)(WorkplaceDescription)
+export default connect(mapStateToProps, mapDispatchToProps)(WorkplaceDescription)

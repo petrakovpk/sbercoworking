@@ -53,7 +53,7 @@ class ButtonSetBuildingModal extends React.Component {
         for (let i = 0; i <= button_buildings.length - 1; i++) {
 
             items.push(
-                <div className="col-md-3 mt-3">
+                <div className="col-md-3 col-12 btn-group text-center mt-3 mt-md-1">
                     <button
                         type="button"
                         className="btn btn-light card"
@@ -65,8 +65,13 @@ class ButtonSetBuildingModal extends React.Component {
                             this.toggle()
                         }}
                     >
-                        <h5 className="text-center"> {button_buildings[i]['building_name']}</h5>
+                        <div className="container-fluid text-center">
+
+                        <h5 > {button_buildings[i]['building_name']}</h5>
                         {button_buildings[i]['building_address']}
+
+                        </div>
+
                     </button>
                 </div>
             );

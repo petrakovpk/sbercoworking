@@ -17,7 +17,7 @@ Date.prototype.yyyymmdd = function () {
     return [(dd > 9 ? '' : '0') + dd,
         (mm > 9 ? '' : '0') + mm,
         this.getFullYear()
-    ].join('.');
+    ].join('');
 };
 
 class ButtonBookWorkplace extends React.Component {
@@ -78,7 +78,7 @@ class ButtonBookWorkplace extends React.Component {
                     }
 
                     for (let i = 0; i <= result['bookings'].length - 1; i++) {
-                        if (result['bookings'][i]['date'] === date.yyyymmdd()) {
+                        if (result['bookings'][i]['date'] == date.yyyymmdd()) {
                             this.setState({
                                 login: result['bookings'][i]['user_id']
                             })
@@ -112,7 +112,7 @@ class ButtonBookWorkplace extends React.Component {
                 Accept: 'application/json',
             },
             body: JSON.stringify({
-                "login": loggedUser,
+                "user_id": loggedUser,
                 "date": workplaceDate.yyyymmdd(),
                 "type": type
             })
@@ -129,13 +129,18 @@ class ButtonBookWorkplace extends React.Component {
 
     toggle = () => {
 
+
+
         const {
-            modal
+            modal,
+            workplaceDate
         } = this.state
 
         this.setState({
             modal: !modal
         })
+
+        this.loadBookingData(workplaceDate)
     }
 
     render() {
@@ -153,7 +158,7 @@ class ButtonBookWorkplace extends React.Component {
 
 
                 <button type="button" className="btn btn-outline-primary btn-block"
-                        onClick={this.toggle}>Забронировать
+                        onClick={this.toggle}> Управление бронированием
                 </button>
 
 
@@ -182,7 +187,7 @@ class ButtonBookWorkplace extends React.Component {
 
                             <div className="col-md-6">
 
-                                <b>Дата:</b> {workplaceDate.yyyymmdd()}
+                                <b>Дата:</b> {workplaceDate.toLocaleDateString()}
                                 <p/>
                                 <b>Пользователь:</b> {login}
                                 <p/>

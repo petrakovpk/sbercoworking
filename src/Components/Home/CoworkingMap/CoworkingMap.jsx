@@ -1,11 +1,20 @@
 import React from 'react';
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import {connect} from "react-redux";
 import {API_URL} from "../../../settings";
 import {changeCoworkingMapWorkplace} from "../../../Actions/Home/setCoworkingMap";
 import {bindActionCreators} from 'redux'
+import {connect} from "react-redux";
 
+Date.prototype.ddmmyyyy = function () {
+    var mm = this.getMonth() + 1; // getMonth() is zero-based
+    var dd = this.getDate();
+
+    return [(dd > 9 ? '' : '0') + dd,
+        (mm > 9 ? '' : '0') + mm,
+        this.getFullYear()
+    ].join('');
+};
 
 class CoworkingMap extends React.Component {
     constructor(props) {
@@ -15,9 +24,7 @@ class CoworkingMap extends React.Component {
 
     componentDidMount() {
 
-
         this.loadMapViaProps()
-
 
     }
 
@@ -51,19 +58,19 @@ class CoworkingMap extends React.Component {
             changeCoworkingMapWorkplace
         } = this.props
 
-
         const {
             coworkingMapFloor,
-            coworkingMapBuilding
+            coworkingMapBuilding,
+            coworkingMapDay
         } = this.props
 
 
-        const map_url = API_URL+'/buildings/'
+        const map_url = API_URL + '/buildings/'
             + coworkingMapBuilding + '/'
             + coworkingMapFloor + '/map.png'
 
 
-        //Получаем рабочие места
+        //Получаем карту
         fetch(API_URL + "/buildings/" + coworkingMapBuilding + '/' + coworkingMapFloor)
             .then(res => res.json())
             .then((result) => {
@@ -77,9 +84,32 @@ class CoworkingMap extends React.Component {
 
                     this.map.setView([height / 2, width / 2], 0);
 
+                    if (result['workplaces'] === undefined) {
+                        return
+                    }
+
                     const workplaces = result['workplaces']
 
+                    let poly_colour = 'green'
+
+
+
                     for (let i = 0; i <= workplaces.length - 1; i++) {
+
+                        poly_colour = 'green'
+
+
+                        for (let j = 0; j <= result['workplaces'][i]['bookings'].length - 1; j++) {
+
+
+                            if (result['workplaces'][i]['bookings'][j]['date'] == coworkingMapDay.ddmmyyyy()) {
+
+                                poly_colour = 'red'
+
+                            }
+                        }
+
+
 
                         L.polygon(
                             [
@@ -103,24 +133,22 @@ class CoworkingMap extends React.Component {
                                 ]
                             ],
                             {
-                                color: 'green',
+                                color: poly_colour,
                                 stroke: false,
                             }
                         ).addTo(this.map).on(
-                            'click',  () => {
+                            'click', () => {
 
                                 changeCoworkingMapWorkplace(workplaces[i]['workplace_id'])
 
                             }
                         )
 
-
                     }
 
 
                 }
             )
-
     }
 
 
@@ -135,23 +163,30 @@ class CoworkingMap extends React.Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const
+    mapDispatchToProps = (dispatch) => {
 
-    return {
+        return {
 
-        changeCoworkingMapWorkplace: bindActionCreators(changeCoworkingMapWorkplace, dispatch),
-    }
-}
-
-
-const mapStateToProps = (state) => {
-
-    return {
-        coworkingMapBuilding: state.setCoworkingMapReducer.coworkingMapBuilding,
-        coworkingMapFloor: state.setCoworkingMapReducer.coworkingMapFloor,
-        coworkingMapSection: state.setCoworkingMapReducer.coworkingMapSection,
+            changeCoworkingMapWorkplace: bindActionCreators(changeCoworkingMapWorkplace, dispatch),
+        }
     }
 
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoworkingMap)
+const
+    mapStateToProps = (state) => {
+
+        return {
+            coworkingMapBuilding: state.setCoworkingMapReducer.coworkingMapBuilding,
+            coworkingMapFloor: state.setCoworkingMapReducer.coworkingMapFloor,
+            coworkingMapSection: state.setCoworkingMapReducer.coworkingMapSection,
+            coworkingMapDay: state.setCoworkingMapReducer.coworkingMapDay
+        }
+
+    }
+
+export default connect(mapStateToProps, mapDispatchToProps)
+
+(
+    CoworkingMap
+)
