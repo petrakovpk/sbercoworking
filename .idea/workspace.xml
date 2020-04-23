@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeb13d5c-8052-47bf-a84c-ab3ff80e014f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/Home/CoworkingMap/CoworkingMap.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/CoworkingMap/CoworkingMap.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Home/WorklpaceDescription/WorkplaceDescription.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home/WorklpaceDescription/WorkplaceDescription.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login/Login.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="eeb13d5c-8052-47bf-a84c-ab3ff80e014f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/Login/Login.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -58,6 +51,7 @@
       <find>for</find>
       <find>(e)</find>
       <find>POST</find>
+      <find>127.0</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -119,9 +113,9 @@
         <option value="$PROJECT_DIR$/src/Components/Home/ButtonBookWorkplace/ButtonBookWorkplace.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Home/ButtonSetBuildingModal/ButtonSetBuildingModal.jsx" />
         <option value="$PROJECT_DIR$/src/settings.js" />
-        <option value="$PROJECT_DIR$/src/Components/Login/Login.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Home/CoworkingMap/CoworkingMap.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Home/WorklpaceDescription/WorkplaceDescription.jsx" />
+        <option value="$PROJECT_DIR$/src/Components/Login/Login.jsx" />
       </list>
     </option>
   </component>
@@ -132,7 +126,7 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="714" />
+    <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -264,7 +258,7 @@
       <workItem from="1587499504248" duration="3370000" />
       <workItem from="1587565039973" duration="339000" />
       <workItem from="1587571714841" duration="921000" />
-      <workItem from="1587591833609" duration="1473000" />
+      <workItem from="1587591833609" duration="1906000" />
     </task>
     <task id="LOCAL-00001" summary="nice">
       <created>1586708615260</created>
@@ -336,11 +330,25 @@
       <option name="project" value="LOCAL" />
       <updated>1587595653416</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="nice 3">
+      <created>1587596457114</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587596457114</updated>
+    </task>
+    <task id="LOCAL-00012" summary="nice 3">
+      <created>1587596582877</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587596582877</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109562000" />
+    <option name="totallyTimeSpent" value="109995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -351,7 +359,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49785408" visible="true" weight="0.3048193" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.3048193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -709,11 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Login/Login.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
         </state>
       </provider>
     </entry>
