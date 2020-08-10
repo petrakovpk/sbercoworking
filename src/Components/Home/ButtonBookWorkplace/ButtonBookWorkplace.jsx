@@ -133,7 +133,7 @@ class ButtonBookWorkplace extends React.Component {
 
         const {
             modal,
-            workplaceDate
+            workplaceDate 
         } = this.state
 
         this.setState({
